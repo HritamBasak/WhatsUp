@@ -24,7 +24,7 @@ import Models.Users;
 
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
-    private FirebaseAuth auth;
+    FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
     @Override
@@ -48,21 +48,27 @@ public class SignUpActivity extends AppCompatActivity {
         binding.btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = binding.etemail.getText().toString().trim();
+                String password = binding.etpassword.getText().toString().trim();
+
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(SignUpActivity.this, "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 progressDialog.show();
-                auth.createUserWithEmailAndPassword(binding.etemail.getText().toString(),binding.etpassword.getText().toString())
+                auth.createUserWithEmailAndPassword(email, password) // Use trimmed values here
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
-
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
-                                if(task.isSuccessful()) {
-                                    Users users=new Users(binding.etusername.getText().toString(),binding.etemail.getText().toString(),binding.etpassword.getText().toString());
-                                    String id=task.getResult().getUser().getUid();
+                                if (task.isSuccessful()) {
+                                    Users users = new Users(binding.etusername.getText().toString(), email, password);
+                                    String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(users);
                                     Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                                }
-                                else {
-                                    Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(SignUpActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
