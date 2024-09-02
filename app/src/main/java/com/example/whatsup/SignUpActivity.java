@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -38,6 +39,8 @@ public class SignUpActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setBackgroundDrawable(getDrawable(R.drawable.backgroundactionbar));
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
 
@@ -67,6 +70,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(users);
                                     Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(SignUpActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }

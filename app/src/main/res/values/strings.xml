@@ -4,4 +4,6 @@
     <string name="Settings">Settings\n</string>
     <string name="newgrp">New Group</string>
     <string name="default_web_client_id">545249409803-qkpmqnpsu71lqu2j9370ghueakv37k25.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

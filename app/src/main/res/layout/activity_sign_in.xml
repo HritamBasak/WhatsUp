@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        app:srcCompat="@drawable/whatsapp" />
+        app:srcCompat="@drawable/chat" />
 
     <EditText
         android:id="@+id/etemail"
@@ -27,7 +27,8 @@
         android:fontFamily="@font/adlam_display"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/etpassword"
@@ -39,7 +40,8 @@
         android:fontFamily="@font/adlam_display"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/clicksignup"
@@ -55,11 +57,12 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/signupbutton"
+        android:backgroundTint="#009688"
         android:fontFamily="@font/adlam_display"
-        android:padding="10dp"
+        android:padding="15dp"
         android:text="SIGN IN"
-        android:textColor="#FAF5F5" />
+        android:textColor="#FAF5F5"
+        app:cornerRadius="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,11 +76,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@drawable/googlesignup"
+            android:backgroundTint="#EBE5E5"
             android:drawableLeft="@drawable/google"
             android:fontFamily="@font/adlam_display"
-            android:padding="10dp"
-            android:text="Google" />
+            android:padding="15dp"
+            android:text="Google"
+            android:textColor="#2E2121"
+            app:cornerRadius="10dp" />
 
         <Button
             android:id="@+id/btn_fb"
@@ -86,12 +91,13 @@
             android:layout_margin="5dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:background="@drawable/facebooksignup"
+            android:backgroundTint="#3F51B5"
             android:drawableLeft="@drawable/social"
             android:fontFamily="@font/adlam_display"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="Facebook"
-            android:textColor="#F0E9E9" />
+            android:textColor="#F0E9E9"
+            app:cornerRadius="10dp" />
     </LinearLayout>
 
     <TextView

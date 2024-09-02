@@ -21,6 +21,14 @@ package Models;
             this.pass = pass;
         }
 
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
         public String getProfilepic() {
             return profilepic;
         }
@@ -53,13 +61,6 @@ package Models;
             this.pass = pass;
         }
 
-        public String getUserId() {
-            return userId;
-        }
-
-        public void setUserId(String userId) {
-            this.userId = userId;
-        }
 
         public String getLastMessage() {
             return lastMessage;
